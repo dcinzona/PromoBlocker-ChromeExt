@@ -1,0 +1,43 @@
+{
+  "name": "PromoBlocker",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "Manually blocking web elements that are annoying",
+  "homepage_url": "https://gist.github.com/dcinzona/6d83665d73534266a4437735eae093d4",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "default_locale": "en",
+  "background": {
+    "scripts": [
+      "src/bg/background.js"
+    ],
+    "persistent": true
+  },
+  "permissions": [
+    "contentSettings",
+    "webRequest",
+    "webRequestBlocking",
+    "http://*/*",
+    "https://*/*"
+  ],
+  "content_scripts": [{
+      "matches": [
+        "https://twitter.com/*"
+      ],
+      "css": [
+        "src/inject/twitter.css"
+      ]
+    },
+    {
+      "matches": [
+        "https://feedly.com/*"
+      ],
+      "js": [
+        "src/inject/feedly.js"
+      ]
+    }
+  ]
+}
