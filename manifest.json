@@ -30,6 +30,14 @@
       "css": [
         "src/inject/twitter.css"
       ]
+    }, {
+      "matches": [
+        "https://facebook.com/*",
+        "https://www.facebook.com/*"
+      ],
+      "css": [
+        "src/inject/facebook.css"
+      ]
     },
     {
       "matches": [
