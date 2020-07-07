@@ -1,3 +1,4 @@
-[role="article"].sponsored_ad {
+[role="article"].sponsored_ad,
+div [role="feed"] .sponsored_ad {
     display: none !important;
 }
