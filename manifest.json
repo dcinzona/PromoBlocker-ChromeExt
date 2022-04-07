@@ -11,9 +11,7 @@
   },
   "default_locale": "en",
   "background": {
-    "scripts": [
-      "src/bg/background.js"
-    ],
+    "scripts": ["src/bg/background.js"],
     "persistent": true
   },
   "permissions": [
@@ -23,29 +21,25 @@
     "http://*/*",
     "https://*/*"
   ],
-  "content_scripts": [{
-      "matches": [
-        "https://twitter.com/*"
-      ],
-      "css": [
-        "src/inject/twitter.css"
-      ]
-    }, {
-      "matches": [
-        "https://facebook.com/*",
-        "https://www.facebook.com/*"
-      ],
-      "css": [
-        "src/inject/facebook.css"
-      ]
+  "content_scripts": [
+    {
+      "matches": ["https://twitter.com/*"],
+      "css": ["src/inject/twitter.css"]
+    },
+    {
+      "matches": ["https://facebook.com/*", "https://www.facebook.com/*"],
+      "css": ["src/inject/facebook.css"]
+    },
+    {
+      "matches": ["https://feedly.com/*"],
+      "js": ["src/inject/feedly.js"]
     },
     {
       "matches": [
-        "https://feedly.com/*"
+        "https://google.com/search*",
+        "https://www.google.com/search*"
       ],
-      "js": [
-        "src/inject/feedly.js"
-      ]
+      "css": ["src/inject/google.css"]
     }
   ]
 }
