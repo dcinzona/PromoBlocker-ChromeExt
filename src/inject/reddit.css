@@ -1,0 +1,3 @@
+.ListingLayout-outerContainer>div:last-child>div:last-child div.promotedlink {
+    display: none !important;
+}
