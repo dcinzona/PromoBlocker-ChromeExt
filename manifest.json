@@ -1,7 +1,7 @@
 {
   "name": "PromoBlocker",
-  "version": "0.0.1",
-  "manifest_version": 2,
+  "version": "0.0.3",
+  "manifest_version": 3,
   "description": "Manually blocking web elements that are annoying",
   "homepage_url": "https://gist.github.com/dcinzona/6d83665d73534266a4437735eae093d4",
   "icons": {
@@ -11,16 +11,52 @@
   },
   "default_locale": "en",
   "background": {
-    "scripts": ["src/bg/background.js"],
-    "persistent": true
+    "service_worker": "src/bg/background.js"
   },
   "permissions": [
+    "declarativeNetRequest",
+    "declarativeNetRequestFeedback",
     "contentSettings",
-    "webRequest",
-    "webRequestBlocking",
+    "scripting"
+  ],
+  "host_permissions": [
     "http://*/*",
     "https://*/*"
   ],
+  "declarative_net_request": {
+    "convert_legacy_rules": true,
+    "rule_resources": [
+      {
+        "id": "twitter",
+        "enabled": true,
+        "path": "src/rules/twitter.json"
+      },
+      {
+        "id": "facebook",
+        "enabled": true,
+        "path": "src/rules/facebook.json"
+      },
+      {
+        "id": "feedly",
+        "enabled": true,
+        "path": "src/rules/feedly.json"
+      },
+      {
+        "id": "google",
+        "enabled": true,
+        "path": "src/rules/google.json"
+      },
+      {
+        "id": "reddit",
+        "enabled": true,
+        "path": "src/rules/reddit.json"
+      },
+      {
+        "id": "mint",
+        "enabled": true,
+        "path": "src/rules/mint.json"}
+    ]
+  },
   "content_scripts": [
     {
       "matches": ["https://twitter.com/*"],
@@ -43,7 +79,12 @@
     },
     {
       "matches": ["https://reddit.com/*", "https://www.reddit.com/*"],
-      "css": ["src/inject/reddit.css"]
+      "css": ["src/inject/reddit.css"],
+      "js": ["src/inject/reddit.js"]
+    },
+    {
+      "matches": ["https://mint.intuit.com/*"],
+      "css": ["src/inject/mint.css"]
     }
   ]
 }

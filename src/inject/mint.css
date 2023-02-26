@@ -1,0 +1,6 @@
+.promotions-personalized-offers-ui{
+    display: none !important;
+}
+div[data-morpheus-pluginid="promotions-personalized-offers-ui"]{
+    display: none !important;
+}
