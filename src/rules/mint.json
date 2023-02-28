@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||srv.buysellads.com",
+      "domains": ["buysellads.com"],
+      "resourceTypes": ["main_frame", "script"]
+    }
+  }
+]
